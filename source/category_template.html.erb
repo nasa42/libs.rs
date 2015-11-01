@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-md-12">
+    <h1><%= cat.title %></h1>
+  </div>
+</div>
+
+<% cat.entries.each do |e| %>    
+  <%= partial "entry", locals: { entry: e } %>
+<% end %>

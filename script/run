@@ -1,0 +1,17 @@
+#!/usr/bin/env ruby
+
+require 'rubygems'
+require 'bundler/setup'
+
+$:.unshift File.expand_path("..", File.dirname(__FILE__))
+
+case ARGV[0].to_s.strip
+when "build-db"
+  require 'lib/database'
+  Database.load.prepare.save
+when "deploy"
+  # build
+  # deploy
+else
+  raise "Unknown command '#{ARGV[0]}'. Valid commands are: build-db, deploy."
+end

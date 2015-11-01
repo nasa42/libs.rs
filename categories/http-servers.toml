@@ -1,0 +1,8 @@
+title       = "HTTP Servers"
+group       = "Servers"
+description = "HTTP server libraries in Rust."
+related     = ["mysql-drivers", "web-frameworks"]
+
+[entry.hyper]
+
+[entry.tiny_http]

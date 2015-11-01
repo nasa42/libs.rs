@@ -1,0 +1,5 @@
+title       = "MySQL Drivers"
+group       = "Database Drivers"
+description = "Rust drivers for MySQL"
+related     = ["http-servers", "web-frameworks"]
+

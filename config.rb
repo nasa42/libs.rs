@@ -32,6 +32,9 @@
 # Helpers
 ###
 
+require 'lib/page_helper'
+helpers PageHelper
+
 # Automatic image dimensions on image_tag helper
 # activate :automatic_image_sizes
 
@@ -53,10 +56,15 @@ set :js_dir, 'javascripts'
 
 set :images_dir, 'images'
 
+all_categories.each do |cat|
+  proxy "/#{cat.id}/index.html", "/category_template.html", locals: { cat: cat }, ignore: true
+end
+
 # Build-specific configuration
 configure :build do
-  # For example, change the Compass output style for deployment
-  # activate :minify_css
+  activate :minify_css
+  activate :minify_html, preserve_line_breaks: true
+  # activate :gzip
 
   # Minify Javascript on build
   # activate :minify_javascript

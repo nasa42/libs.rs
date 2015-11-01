@@ -1,10 +1,9 @@
 ---
-title: Welcome to Middleman
+skip_title: true
 ---
 
-<div class="welcome">
-  <h1>Middleman is Watching</h1>
-  <p class="doc">
-    <%= link_to "Read Online Documentation", "http://middlemanapp.com/" %>
-  </p><!-- .doc -->
-</div><!-- .welcome -->
+<ul>
+  <% all_categories.each do |cat| %>
+    <li><%= link_to cat.title, "/#{cat.id}/", title: cat.description %></li>
+  <% end %>
+</ul>
