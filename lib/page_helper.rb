@@ -17,4 +17,9 @@ module PageHelper
     end
     [name, "Rust Libraries"].compact.join(" &mdash; ")
   end
+
+  def fa_icon type
+   "<i class=\"fa fa-#{type}\"></i>"
+  end
+
 end

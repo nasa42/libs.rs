@@ -2,8 +2,8 @@
 skip_title: true
 ---
 
-<ul>
-  <% all_categories.each do |cat| %>
+<ul class="list-unstyled">
+  <% all_categories.sort_by { |c| c.title }.each do |cat| %>
     <li><%= link_to cat.title, "/#{cat.id}/", title: cat.description %></li>
   <% end %>
 </ul>
