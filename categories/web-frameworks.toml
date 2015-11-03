@@ -1,5 +1,4 @@
 title       = "Web Frameworks"
-group       = "Web"
 description = "Web frameworks in Rust"
 related     = ["http-servers", "mysql-drivers"]
 
