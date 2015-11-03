@@ -36,7 +36,7 @@ class Entry
   end
 
   def name 
-    @payload.name || crate_cache.name || @id
+    @payload.name || crate_cache.name.to_s.titlecase.presence || @id
   end
 
   def description
@@ -81,6 +81,10 @@ class Entry
 
   def repository_url
     crate_cache.repository
+  end
+
+  def has_github?
+    repository_url =~ /github\.com/
   end
 
   def crate_url

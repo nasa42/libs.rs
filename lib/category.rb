@@ -1,4 +1,7 @@
 require 'toml'
+require 'active_support'
+require 'active_support/core_ext/object/blank'
+require 'active_support/core_ext/array/conversions.rb'
 require 'lib/path_helper'
 require 'lib/mash'
 require 'lib/entry'
@@ -17,6 +20,10 @@ class Category
         end
       end
     end
+
+    def find_path id
+      categories_path.join("#{id}.toml")
+    end
   end
 
   def initialize id, toml
@@ -32,12 +39,18 @@ class Category
     @toml.description
   end
 
+  def description_or_entries
+    description.presence || entries.map(&:name).to_sentence
+  end
+
   def related
-    @toml.related
+    @toml.related.map do |id|
+      self.class.new id, TOML.load_file(self.class.find_path(id))
+    end
   end
 
   def entries
-    @toml.entry!.map do |id, payload|
+    @entires ||= @toml.entry!.map do |id, payload|
       Entry.new(self, id, payload)
     end
   end

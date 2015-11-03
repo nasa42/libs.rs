@@ -1,11 +1,17 @@
-<section>
-  <div class="row">
-    <div class="col-md-12">
-      <h1><%= cat.title %></h1>
-    </div>
-  </div>
+<% content_for :page_introduction do %>
+  <h1><%= cat.title %></h1>
+  <p><%= cat.description %></p>
+<% end %>
 
-  <% cat.entries.each do |e| %>    
-    <%= partial "entry", locals: { entry: e } %>
-  <% end %>
-</section>
+<% cat.entries.each do |e| %>    
+  <%= partial "entry", locals: { entry: e } %>
+<% end %>
+
+<% content_for :sidebar do %>
+  <h4>Related Categories</h4>
+  <ul class="list-unstyled">
+    <% cat.related.each do |cat| %>
+      <li><%= link_to cat.title, "/#{cat.id}/", title: cat.description %></li>
+    <% end %>
+  </ul>
+<% end %>

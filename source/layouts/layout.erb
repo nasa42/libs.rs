@@ -35,7 +35,21 @@
 
     <div class="page-content">
       <div class="container wrapper">
-        <%= yield %>
+        <% if content_for? :page_introduction %>
+          <div class="row">
+            <div class="col-md-12">
+              <%= yield_content :page_introduction %>
+            </div>
+          </div>
+        <% end %>
+        <div class="row">
+          <div class="col-md-9">
+            <%= yield %>
+          </div>
+          <div class="col-md-3 sidebar text-right">
+            <%= yield_content :sidebar %>
+          </div>
+        </div>
       </div>
     </div>
 

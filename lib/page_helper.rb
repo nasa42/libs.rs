@@ -22,4 +22,10 @@ module PageHelper
    "<i class=\"fa fa-#{type}\"></i>"
   end
 
+  def formatted_time time
+    return if time.nil?
+    s = time.strftime("%-d %B %Y")
+    "<time datetime=\"#{time.iso8601}\">#{s}</time>"
+  end
+
 end

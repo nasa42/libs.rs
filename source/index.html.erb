@@ -2,8 +2,13 @@
 skip_title: true
 ---
 
-<ul class="list-unstyled">
+<% content_for :page_introduction do %>
+  <p>Welcome to Rust Libraries, a catalogue of Rust community's awesomeness!</p>
+<% end %>
+
+<section class="homepage-list">
   <% all_categories.sort_by { |c| c.title }.each do |cat| %>
-    <li><%= link_to cat.title, "/#{cat.id}/", title: cat.description %></li>
+    <h3><%= link_to cat.title, "/#{cat.id}/", title: cat.description %></h3>
+    <p><small><%= cat.description_or_entries %></small></p>
   <% end %>
-</ul>
+</section>

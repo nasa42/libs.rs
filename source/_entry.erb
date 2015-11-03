@@ -1,12 +1,73 @@
-<article>
+<article class="entry">
   <div class="row">
     <div class="col-md-12">
       <h2><%= entry.name %></h2>
     </div>
   </div>
+  <p><%= entry.description %></p>
   <div class="row">
-    <div class="col-md-12">
-      <p><%= entry.description %></p>
+    <div class="col-md-4">
+      <%= fa_icon "cube" %>
+      <%= link_to "crates.io", entry.crate_url %>
+    </div>
+    <div class="col-md-4">
+      <%= fa_icon "home" %>
+      <%= link_to "Homepage", entry.homepage_url %>
+    </div>
+    <div class="col-md-4">
+      <% if entry.has_github? %>
+        <%= fa_icon "github" %>
+      <% end %>
+      <%= link_to "Repository", entry.repository_url %>
+    </div>
+  </div>
+
+  <p></p>
+
+  <div class="row">
+    <div class="col-md-4">
+      <small>Licence</small>
+      <br />
+      <%= entry.licence %>
+    </div>
+    <div class="col-md-4">
+      <small>Latest Version</small>
+      <br />
+      <%= entry.version %>
+    </div>
+    <div class="col-md-4">
+      <small>Last Update</small>
+      <br />
+      <%= formatted_time entry.github_last_commit_at %>
+    </div>
+  </div>
+
+  <p></p>
+
+  <div class="row">
+    <div class="col-md-4">
+      <small>
+        <%= fa_icon "download" %>
+        Crate Downloads
+      </small>
+      <br />
+      <%= entry.crates_io_downloads %>
+    </div>
+    <div class="col-md-4">
+      <small>
+        <%= fa_icon "star" %>
+        GitHub Stars
+      </small>
+      <br />
+      <%= entry.github_stars %>
+    </div>
+    <div class="col-md-4">
+      <small>
+        <%= fa_icon "code-fork" %>
+        GitHub Forks
+      </small>
+      <br />
+      <%= entry.github_forks %>
     </div>
   </div>
 </article>

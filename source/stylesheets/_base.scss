@@ -60,26 +60,10 @@ figcaption {
 
 
 /**
- * Lists
- */
-ul, ol {
-    margin-left: $spacing-unit;
-}
-
-li {
-    > ul,
-    > ol {
-         margin-bottom: 0;
-    }
-}
-
-
-
-/**
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-    font-weight: 300;
+    font-weight: bold;
 }
 
 
@@ -88,7 +72,7 @@ h1, h2, h3, h4, h5, h6 {
  * Links
  */
 a {
-    color: $brand-color;
+    color: darken($brand-color, 15%);
     text-decoration: none;
 
     &:visited {
@@ -96,7 +80,7 @@ a {
     }
 
     &:hover {
-        color: $text-color;
+        color: darken($brand-color, 25%);
         text-decoration: underline;
     }
 }
@@ -146,43 +130,6 @@ pre {
         padding-left: 0;
     }
 }
-
-
-
-/**
- * Wrapper
- */
-.wrapper {
-    // don't use calc(), doesn't seem to work in minified CSS.
-    max-width: 800px - ($spacing-unit * 2);
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: $spacing-unit;
-    padding-left: $spacing-unit;
-    @extend %clearfix;
-
-    @include media-query($on-laptop) {
-        max-width: 800px - $spacing-unit;
-        padding-right: $spacing-unit / 2;
-        padding-left: $spacing-unit / 2;
-    }
-}
-
-
-
-/**
- * Clearfix
- */
-%clearfix {
-
-    &:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-}
-
-
 
 /**
  * Text styling
