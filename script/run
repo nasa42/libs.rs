@@ -5,13 +5,36 @@ require 'bundler/setup'
 
 $:.unshift File.expand_path("..", File.dirname(__FILE__))
 
+def se command
+  puts command
+  system command
+end
+
 case ARGV[0].to_s.strip
 when "build-db"
   require 'lib/database'
   Database.load.prepare.save
 when "deploy"
-  # build
-  # deploy
+  require 'lib/path_helper'
+  include PathHelper
+  se "middleman build --clean"
+  se "rm -rf #{gh_pages_repo_path.to_s.inspect}"
+  se "mkdir -p #{gh_pages_repo_path.to_s.inspect}"
+  Dir.chdir(gh_pages_repo_path) do |path|
+    se "git clone #{root_path.to_s.inspect} ."
+    se "git remote remove origin"
+    se "git remote add origin git@github.com:webstream-io/rust-libs.git"
+    se "git fetch --all"
+    se "git checkout gh-pages"
+    se "git reset --hard origin/gh-pages"
+    se "git rm -r ."
+    se "git clean -f -d"
+    se "cp -R #{build_path.to_s.inspect}/* ."
+    se "echo libs.rs > CNAME"
+    se "git add -A"
+    se "git commit -m 'Auto commit by script/run at #{Time.now.iso8601}'"
+    se "git push origin gh-pages"
+  end
 else
   raise "Unknown command '#{ARGV[0]}'. Valid commands are: build-db, deploy."
 end

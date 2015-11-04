@@ -9,6 +9,10 @@ module PathHelper
     root_path.join("lib")
   end
 
+  def build_path
+    root_path.join("build")
+  end
+
   def tmp_path
     root_path.join("tmp")
   end
@@ -19,5 +23,10 @@ module PathHelper
 
   def categories_path
     root_path.join("categories")
+  end
+
+  # WARNING: This path will be cleaned on every deploy!
+  def gh_pages_repo_path
+    tmp_path.join("gh-pages-repo")
   end
 end
