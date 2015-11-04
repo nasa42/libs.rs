@@ -7,7 +7,7 @@ $:.unshift File.expand_path("..", File.dirname(__FILE__))
 
 def se command
   puts command
-  system command
+  exit(1) unless system command
 end
 
 case ARGV[0].to_s.strip
@@ -32,7 +32,8 @@ when "deploy"
     se "cp -R #{build_path.to_s.inspect}/* ."
     se "echo libs.rs > CNAME"
     se "git add -A"
-    se "git commit -m 'Auto commit by script/run at #{Time.now.iso8601}'"
+    sha = `git show-ref origin/master`[0,8]
+    se "git commit -m 'Auto commit by script/run, origin/master was at #{sha}'"
     se "git push origin gh-pages"
   end
 else
