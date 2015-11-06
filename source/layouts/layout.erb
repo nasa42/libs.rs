@@ -1,16 +1,17 @@
 <!doctype html>
 <html>
-  <head>
+  <head lang="en-GB">
     <meta charset="utf-8">
 
     <!-- Always force latest IE rendering engine or request Chrome Frame -->
-    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+    <meta name=viewport content="width=device-width, initial-scale=1" />
 
     <!-- Use title if it's in the page YAML frontmatter -->
     <title><%= page_title %></title>
 
-    <meta name="description" content="" />
+    <%= meta_tags %>
+    <link rel="canonical" href="<%= canonical_url %>" />
 
     <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" %>
     <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" %>
