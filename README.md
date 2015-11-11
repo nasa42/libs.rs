@@ -1,4 +1,4 @@
-Welcome to Rust Libraries, a catalogue of Rust community's awesomeness!
+Welcome to [Rust Libraries](http://libs.rs), a catalogue of Rust community's awesomeness!
 
 <a name="propose"></a>
 
