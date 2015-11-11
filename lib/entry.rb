@@ -1,6 +1,7 @@
 require 'rest-client'
 require 'active_support'
 require 'active_support/core_ext/object/blank'
+require 'active_support/core_ext/enumerable'
 require 'lib/mash'
 require 'lib/database'
 
@@ -29,6 +30,30 @@ class Entry
     return h
   end
 
+  # A dumb algorithm to rank projects for a category
+  # Pretty sure there are better ways to do this, and if you know one,
+  # let me know!
+  #
+  # Weight is a number between 0 and 1.
+  # Higher the weight, higher it floats (weird, I know)
+  #
+  # Currently weight is affected by GitHub stars, forks, and crates.io
+  # downloads
+  # Stars affect 80% of the weight
+  # Forks and Downloads affect 10% each
+  def weight max_stars, max_forks, max_downloads
+    stars = weight_stars.to_f / max_stars
+    forks = weight_forks.to_f / max_forks
+    downloads = crates_io_downloads.to_f / max_downloads
+    @weights = [(stars * 0.8), (forks * 0.1), (downloads * 0.1)]
+    @weights.sum
+  end
+
+  # for debugging purposes
+  def calculated_weights
+    @weights
+  end
+
   def cache
     @cache ||= Database.load.read_cache(@category, self)
   end
@@ -50,7 +75,7 @@ class Entry
   end
 
   def crates_io_downloads
-    crate_cache.downloads
+    crate_cache.downloads.to_i
   end
 
   def licence
@@ -66,11 +91,24 @@ class Entry
   end
 
   def github_forks
-    github_cache.forks
+    github_cache.forks.to_i
   end
 
   def github_stars
-    github_cache.stargazers_count
+    github_cache.stargazers_count.to_i
+  end
+
+  def weight_stars
+    # if the project is on BitBucket, multiply it by 1.5 as BitBucket
+    # projects usually receive less exposure
+    #
+    # also need to think about what to do with projects which are not
+    # on GH/BB, maybe assign them manual stars?
+    github_stars
+  end
+
+  def weight_forks
+    github_forks
   end
 
   def github_first_commit_at

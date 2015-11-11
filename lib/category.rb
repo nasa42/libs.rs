@@ -1,7 +1,7 @@
 require 'toml'
 require 'active_support'
 require 'active_support/core_ext/object/blank'
-require 'active_support/core_ext/array/conversions.rb'
+require 'active_support/core_ext/array/conversions'
 require 'lib/path_helper'
 require 'lib/mash'
 require 'lib/entry'
@@ -49,9 +49,27 @@ class Category
     end
   end
 
-  def entries
-    @entires ||= @toml.entry!.map do |id, payload|
+  def unsorted_entries
+    @unsorted_entires ||= @toml.entry!.map do |id, payload|
       Entry.new(self, id, payload)
     end
+  end
+
+  def entries
+    @entries ||= unsorted_entries.sort_by do |entry|
+      entry.weight(max_stars, max_forks, max_downloads)
+    end.reverse
+  end
+
+  def max_stars
+    unsorted_entries.map(&:weight_stars).max
+  end
+
+  def max_forks
+    unsorted_entries.map(&:weight_forks).max
+  end
+
+  def max_downloads
+    unsorted_entries.map(&:crates_io_downloads).max
   end
 end
