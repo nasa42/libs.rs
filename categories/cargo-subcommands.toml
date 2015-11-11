@@ -1,0 +1,22 @@
+title       = "Cargo Subcommands"
+related     = ["text-editors", "development-tools", "ide"]
+
+[entry.cargo-check]
+
+[entry.cargo-count]
+
+[entry.cargo-do]
+
+[entry.cargo-dot]
+
+[entry.cargo-edit]
+
+[entry.cargo-fmt]
+
+[entry.cargo-graph]
+
+[entry.cargo-outdated]
+
+[entry.cargo-script]
+
+[entry.cargo-watch]

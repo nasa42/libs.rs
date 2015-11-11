@@ -33,7 +33,7 @@ module PageHelper
   end
 
   def formatted_time time
-    return if time.nil?
+    return if time.blank?
     s = time.strftime("%-d %B %Y")
     "<time datetime=\"#{time.iso8601}\">#{s}</time>"
   end

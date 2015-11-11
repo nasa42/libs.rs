@@ -15,6 +15,12 @@ class Database
   attr_reader :db
 
   class << self
+    include PathHelper
+    
+    def github_token
+      @github_token ||= File.read(tmp_path.join("github-token")).strip
+    end
+    
     def load
       @@instance ||= new
     end
@@ -47,6 +53,8 @@ class Database
       cat.entries.each do |entry|
         if cache_expired?(cat, entry)
           write_cache(cat, entry, entry.fetch_from_origin)
+        else
+          puts "Skipping cache generation for #{cat.title}/#{entry.name} (last run was at #{Time.at read_cache(cat, entry).fetch_timestamp})"
         end
       end
     end

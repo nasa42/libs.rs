@@ -1,0 +1,6 @@
+title       = "CLI Argument Parsers"
+related     = ["text-editors", "development-tools", "ide"]
+
+[entry.docopt]
+
+[entry.clap]

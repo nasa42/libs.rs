@@ -1,0 +1,20 @@
+title       = "Development Tools"
+related     = ["text-editors"]
+
+[entry.colg-cli]
+
+[entry.bindgen]
+
+[entry.rusty-tags]
+
+[entry.stopwatch]
+
+[entry.crate-deps]
+
+[entry.clippy]
+
+[entry.rustfmt]
+
+[entry.racer]
+
+

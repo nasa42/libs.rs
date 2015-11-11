@@ -1,0 +1,5 @@
+title       = "Databases"
+related     = ["linux-utils", "http-servers"]
+
+[entry.rsedis]
+crates_io_id = false

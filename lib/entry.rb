@@ -16,11 +16,17 @@ class Entry
     @payload = Mash.new payload
   end
 
+  def id_with_cat
+    "#{@category.id}:#{id}"
+  end
+
   def fetch_from_origin
-    {
-      crates_io: fetch_from_crates_io,
-      github: fetch_from_github,
-    }
+    h = Mash.new
+    crates_io_payload = fetch_from_crates_io
+    github_payload = fetch_from_github
+    h.crates_io = crates_io_payload if crates_io_payload.crate!.present?
+    h.github = github_payload if github_payload.present?
+    return h
   end
 
   def cache
@@ -68,19 +74,21 @@ class Entry
   end
 
   def github_first_commit_at
+    return if github_cache.created_at.blank?
     Time.parse(github_cache.created_at)
   end
 
   def github_last_commit_at
+    return if github_cache.pushed_at.blank?
     Time.parse(github_cache.pushed_at)
   end
 
   def homepage_url
-    crate_cache.homepage
+    @payload.homepage_url.presence || crate_cache.homepage.presence || repository_url || crate_url
   end
 
   def repository_url
-    crate_cache.repository
+    @payload.repository_url || crate_cache.repository
   end
 
   def has_github?
@@ -92,29 +100,48 @@ class Entry
   end
 
   def crates_io_id
-    id
+    if @payload.key?(:crates_io_id) && false == @payload.crates_io_id
+      return false
+    end
+    @payload.crates_io_id.presence || id
   end
 
-  def github_repo
-    url = crate_cache.repository.presence || fetch_from_crates_io.crate!.repository
-    return if url.blank?
-    URI.parse(url).path =~ /\/([^\/]+\/[^\/]+)/
-    $1
+  def github_repo(fetch_live = false)
+    @github_repo ||= -> do
+      url = repository_url
+      if url.blank? && fetch_live
+        payload = fetch_from_crates_io
+        payload && (url = payload.crate!.repository)
+      end
+      return if url.blank?
+      URI.parse(url).path =~ /\/([^\/]+\/[^\/]+)/
+      $1 && $1.sub(/\.git$/, '')
+    end.call
   end
 
   protected
 
   def fetch_from_crates_io
     @crates_io_response ||= -> do
+      if crates_io_id.blank?
+        puts "crates.io is blank for #{id_with_cat}"
+        return Mash.new
+      end
       puts "Fetching crates.io/#{crates_io_id}"
-      rest = RestClient::Resource.new(CRATES_IO_API_ENDPOINT)
-      Mash.new JSON.parse(rest["crates/#{crates_io_id}"].get.body)
+      begin
+        rest = RestClient::Resource.new(CRATES_IO_API_ENDPOINT)
+        return Mash.new JSON.parse(rest["crates/#{crates_io_id}"].get.body)
+      rescue RestClient::ResourceNotFound => e
+        puts "[ERROR] #{e.class} - #{e.message} - for #{id_with_cat}"
+        return Mash.new
+      end
     end.call
   end
 
   def fetch_from_github
+    return if github_repo(true).blank?
     puts "Fetching github.com/#{github_repo}"
-    rest = RestClient::Resource.new(GITHUB_API_ENDPOINT)
+    rest = RestClient::Resource.new(GITHUB_API_ENDPOINT, headers: { "Authorization" => "token #{Database.github_token}"})
     Mash.new JSON.parse(rest["repos/#{github_repo}"].get.body)
   end
 end

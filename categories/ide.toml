@@ -1,0 +1,6 @@
+title       = "IDEs"
+description = "Integrated Development Environments for Rust."
+related     = ["text-editors", "development-tools"]
+
+[entry.solidoak]
+

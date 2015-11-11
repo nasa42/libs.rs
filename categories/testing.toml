@@ -1,0 +1,9 @@
+title       = "Testing"
+related     = ["text-editors", "development-tools", "ide"]
+
+[entry.quickcheck]
+
+[entry.shiny]
+
+[entry.afl-coverage]
+
