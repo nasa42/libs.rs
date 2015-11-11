@@ -8,7 +8,7 @@ It is really easy to contribute to Rust Libraries. Just fork [the repository](ht
 
 Each category in Rust Libraries maps to a TOML file in [categories directory](https://github.com/webstream-io/rust-libs/tree/master/categories). Creating a new category is as easy as adding a new TOML file.
 
-To add a new project to a category, just add `[entry.NAME]` to its TOML file (where `NAME` is same as the name used in project's `Cargo.toml`).
+To add a new project to a category, just add `[entry.NAME]` to its TOML file (where `NAME` is same as the name used in project's `Cargo.toml`). All projects are automatically sorted based on their popularity.
 
 For example, to add [Iron](http://ironframework.io/) in [Web Frameworks](http://libs.rs/web-frameworks/) category, open [web-frameworks.toml](https://github.com/webstream-io/rust-libs/blob/master/categories/web-frameworks.toml) file and add line `[entry.iron]`. Rust Libraries will pick rest of the information from [crates.io](https://crates.io).
 
