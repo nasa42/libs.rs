@@ -1,12 +1,22 @@
 <!doctype html>
 <html>
-<head>
+<head lang=en-GB>
 <meta charset=utf-8>
 
-<meta content="IE=edge,chrome=1" http-equiv=X-UA-Compatible>
+<meta content="IE=edge,chrome=1" http-equiv=X-UA-Compatible />
+<meta name=viewport content="width=device-width, initial-scale=1"/>
 
 <title>About &mdash; Rust Libraries</title>
-<meta name=description content=""/>
+<meta property="og:title" content="About &mdash; Rust Libraries"/>
+<meta property="og:type" content=website />
+<meta property="og:url" content="http://libs.rs/about/"/>
+<meta property="og:image" content="https://www.rust-lang.org/logos/rust-logo-blk.svg"/>
+<meta property="og:site_name" content="Rust Libraries"/>
+<meta property="og:locale" content=en-GB />
+<meta itemprop=name content="About &mdash; Rust Libraries"/>
+<meta itemprop=image content="https://www.rust-lang.org/logos/rust-logo-blk.svg"/>
+<link rel=canonical href="http://libs.rs/about/"/>
+<link rel=copyright href="https://creativecommons.org/publicdomain/zero/1.0/"/>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel=stylesheet />
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel=stylesheet />
 <link href="/stylesheets/main.css" rel=stylesheet />
@@ -31,12 +41,33 @@
 <div class="container wrapper">
 <div class=row>
 <div class=col-md-9>
-<p>Hello, world!</p>
-<p><a name=propose></a>
-# Submit a request</p>
-<p>TODO</p>
+<p>Welcome to <a href="http://libs.rs">Rust Libraries</a>, a catalogue of Rust community's awesomeness!</p>
+<p><a name=propose></a></p>
+<h1 id=submit-a-change>Submit a change</h1>
+<p>It is really easy to contribute to Rust Libraries. Just fork <a href="https://github.com/webstream-io/rust-libs">the repository</a>, add your changes, and make a <a href="https://github.com/webstream-io/rust-libs/pulls">pull request</a> (or just <a href="https://github.com/webstream-io/rust-libs/issues">file an issue</a> and we'll manually add it)!</p>
+<p>Each category in Rust Libraries maps to a TOML file in <a href="https://github.com/webstream-io/rust-libs/tree/master/categories">categories directory</a>. Creating a new category is as easy as adding a new TOML file.</p>
+<p>To add a new project to a category, just add <code>[entry.NAME]</code> to its TOML file (where <code>NAME</code> is same as the name used in project's <code>Cargo.toml</code>). All projects are automatically sorted based on their popularity.</p>
+<p>For example, to add <a href="http://ironframework.io/">Iron</a> in <a href="http://libs.rs/web-frameworks/">Web Frameworks</a> category, open <a href="https://github.com/webstream-io/rust-libs/blob/master/categories/web-frameworks.toml">web-frameworks.toml</a> file and add line <code>[entry.iron]</code>. Rust Libraries will pick rest of the information from <a href="https://crates.io">crates.io</a>.</p>
+<h2 id=advanced-options>Advanced options</h2>
+<p>By default Rust Libraries picks all necessary information from <a href="https://crates.io">crates.io</a>. But you can customise a project by supplying additional options in the TOML file.</p>
+<pre><code>[entry.iron]
+
+# By default, NAME in [entry.NAME] is the crates.io ID, but you can override it here
+# or use the value `false` if your project is not on crates.io
+crates_io_id = "iron"
+
+# Name is automatically picked from crates.io, but you can override it here
+name = "Iron"
+
+# Custom homepage URL
+homepage_url = "http://ironframework.io/"
+
+# Custom repository URL
+repository_url = "https://github.com/iron/iron"
+</code></pre>
+<p>If your project needs additional options or you still have any questions, <a href="https://github.com/webstream-io/rust-libs/issues">file an issue</a> and we'll take a look!</p>
 <hr/>
-<p>Licenced under CC-ZERO-1.0</p>
+<p>Licenced under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>.</p>
 </div>
 <div class="col-md-3 sidebar text-right">
 </div>
