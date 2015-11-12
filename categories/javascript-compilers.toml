@@ -1,0 +1,12 @@
+title       = "JavaScript Compilers"
+related     = ["text-editors", "development-tools", "ide"]
+
+[entry.rjs]
+crates_io_id = false
+name = "rjs"
+repository_url = "https://github.com/rust-js/rjs"
+
+[entry.rjs2]
+crates_io_id = false
+name = "rjs"
+repository_url = "https://github.com/swgillespie/rjs"

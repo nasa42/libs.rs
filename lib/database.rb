@@ -50,7 +50,7 @@ class Database
 
   def prepare
     Category.all.each do |cat|
-      cat.entries.each do |entry|
+      cat.unsorted_entries.each do |entry|
         if cache_expired?(cat, entry)
           write_cache(cat, entry, entry.fetch_from_origin)
         else

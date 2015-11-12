@@ -6,10 +6,12 @@
   </div>
   <p><%= entry.description %></p>
   <div class="row">
-    <div class="col-sm-4">
-      <%= fa_icon "cube" %>
-      <%= link_to "crates.io", entry.crate_url %>
-    </div>
+    <% if entry.crate_url.present? %>
+      <div class="col-sm-4">
+        <%= fa_icon "cube" %>
+        <%= link_to "crates.io", entry.crate_url %>
+      </div>
+    <% end %>
     <div class="col-sm-4">
       <%= fa_icon "home" %>
       <%= link_to "Homepage", entry.homepage_url %>
@@ -28,17 +30,17 @@
     <div class="col-sm-4">
       <small>Licence</small>
       <br />
-      <%= entry.licence %>
+      <%= entry.licence || "N/A" %>
     </div>
     <div class="col-sm-4">
       <small>Latest Version</small>
       <br />
-      <%= entry.version %>
+      <%= entry.version || "N/A" %>
     </div>
     <div class="col-sm-4">
       <small>Last Update</small>
       <br />
-      <%= formatted_time entry.github_last_commit_at %>
+      <%= formatted_time(entry.github_last_commit_at) || "N/A" %>
     </div>
   </div>
 

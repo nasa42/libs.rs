@@ -1,4 +1,5 @@
 require 'rest-client'
+require 'toml'
 require 'active_support'
 require 'active_support/core_ext/object/blank'
 require 'active_support/core_ext/enumerable'
@@ -23,10 +24,9 @@ class Entry
 
   def fetch_from_origin
     h = Mash.new
-    crates_io_payload = fetch_from_crates_io
-    github_payload = fetch_from_github
-    h.crates_io = crates_io_payload if crates_io_payload.crate!.present?
-    h.github = github_payload if github_payload.present?
+    h.crates_io = fetch_from_crates_io
+    h.github = fetch_from_github
+    h.cargo_toml = fetch_cargo_toml
     return h
   end
 
@@ -42,9 +42,21 @@ class Entry
   # Stars affect 80% of the weight
   # Forks and Downloads affect 10% each
   def weight max_stars, max_forks, max_downloads
-    stars = weight_stars.to_f / max_stars
-    forks = weight_forks.to_f / max_forks
-    downloads = crates_io_downloads.to_f / max_downloads
+    if max_stars.zero?
+      stars = 0.0
+    else
+      stars = weight_stars.to_f / max_stars
+    end
+    if max_forks.zero?
+      forks = 0.0
+    else
+      forks = weight_forks.to_f / max_forks
+    end
+    if max_downloads.zero?
+      downloads = 0.0
+    else
+      downloads = crates_io_downloads.to_f / max_downloads
+    end
     @weights = [(stars * 0.8), (forks * 0.1), (downloads * 0.1)]
     @weights.sum
   end
@@ -66,12 +78,19 @@ class Entry
     cache.github!
   end
 
+  def cargo_toml_cache
+    cache.cargo_toml!
+  end
+
   def name 
     @payload.name || crate_cache.name.to_s.titlecase.presence || @id
   end
 
   def description
-    @payload.description || crate_cache.description
+    @payload.description.presence ||
+      crate_cache.description.presence ||
+      cargo_toml_cache.package!.description.presence ||
+      github_cache.description
   end
 
   def crates_io_downloads
@@ -79,11 +98,13 @@ class Entry
   end
 
   def licence
-    crate_cache.license
+    crate_cache.license.presence ||
+      cargo_toml_cache.package!.license
   end
 
   def version
-    crate_cache.max_version
+    crate_cache.max_version.presence ||
+      cargo_toml_cache.package!.version
   end
 
   def github_full_name
@@ -122,7 +143,11 @@ class Entry
   end
 
   def homepage_url
-    @payload.homepage_url.presence || crate_cache.homepage.presence || repository_url || crate_url
+    @payload.homepage_url.presence ||
+      crate_cache.homepage.presence ||
+      cargo_toml_cache.package!.homepage.presence ||
+      repository_url ||
+      crate_url
   end
 
   def repository_url
@@ -134,7 +159,9 @@ class Entry
   end
 
   def crate_url
-    "https://crates.io/crates/#{crates_io_id}"
+    if crates_io_id
+      "https://crates.io/crates/#{crates_io_id}"
+    end
   end
 
   def crates_io_id
@@ -162,7 +189,7 @@ class Entry
   def fetch_from_crates_io
     @crates_io_response ||= -> do
       if crates_io_id.blank?
-        puts "crates.io is blank for #{id_with_cat}"
+        puts "crates.io is not available for #{id_with_cat}"
         return Mash.new
       end
       puts "Fetching crates.io/#{crates_io_id}"
@@ -170,16 +197,38 @@ class Entry
         rest = RestClient::Resource.new(CRATES_IO_API_ENDPOINT)
         return Mash.new JSON.parse(rest["crates/#{crates_io_id}"].get.body)
       rescue RestClient::ResourceNotFound => e
-        puts "[ERROR] #{e.class} - #{e.message} - for #{id_with_cat}"
+        puts "[ERROR] #{e.class} - #{e.message} - for #{id_with_cat} while fetching crates.io/#{crates_io_id}"
         return Mash.new
       end
     end.call
   end
 
   def fetch_from_github
-    return if github_repo(true).blank?
-    puts "Fetching github.com/#{github_repo}"
-    rest = RestClient::Resource.new(GITHUB_API_ENDPOINT, headers: { "Authorization" => "token #{Database.github_token}"})
-    Mash.new JSON.parse(rest["repos/#{github_repo}"].get.body)
+    rest_for_github_repo do |rest|
+      puts "Fetching github.com/#{github_repo}"
+      Mash.new JSON.parse(rest["repos/#{github_repo}"].get.body)
+    end
+  end
+
+  # TODO: Add support for raw urls to TOML files
+  def fetch_cargo_toml
+    rest_for_github_repo do |rest|
+      puts "Fetching Cargo.toml from github.com/#{github_repo}"
+      Mash.new(
+        TOML.parse(
+          Base64.decode64(
+            JSON.parse(rest["repos/#{github_repo}/contents/Cargo.toml"].get.body)["content"]
+            ).force_encoding('UTF-8')
+          )
+        )
+    end
+  rescue RestClient::ResourceNotFound => e
+    puts "Cargo.toml was not found for #{id_with_cat}"
+    return Mash.new
+  end
+
+  def rest_for_github_repo
+    return Mash.new if github_repo(true).blank?
+    yield RestClient::Resource.new(GITHUB_API_ENDPOINT, headers: { "Authorization" => "token #{Database.github_token}"})
   end
 end
