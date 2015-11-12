@@ -4,7 +4,7 @@ Welcome to [Rust Libraries](http://libs.rs), a catalogue of Rust community's awe
 
 # Submit a change
 
-It is really easy to contribute to Rust Libraries. Just fork [the repository](https://github.com/webstream-io/rust-libs), add your changes, and make a [pull request](https://github.com/webstream-io/rust-libs/pulls)!
+It is really easy to contribute to Rust Libraries. Just fork [the repository](https://github.com/webstream-io/rust-libs), add your changes, and make a [pull request](https://github.com/webstream-io/rust-libs/pulls) (or just [file an issue](https://github.com/webstream-io/rust-libs/issues) and we'll manually add it)!
 
 Each category in Rust Libraries maps to a TOML file in [categories directory](https://github.com/webstream-io/rust-libs/tree/master/categories). Creating a new category is as easy as adding a new TOML file.
 
