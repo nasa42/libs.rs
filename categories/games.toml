@@ -2,51 +2,93 @@ title       = "Games"
 related     = ["gaming-console-emulators"]
 
 [entry.rocket]
+crates_io_id = false
+repository_url = "https://github.com/aochagavia/rocket"
 
 [entry.rust-sudoku]
+crates_io_id = false
+repository_url = "https://github.com/xairy/rust-sudoku"
 
 [entry.snake-piston]
+crates_io_id = false
+repository_url = "https://github.com/xojoc/snake-piston"
 
 [entry.rust-2048]
+crates_io_id = false
+repository_url = "https://github.com/Coeuvre/rust-2048"
 
 [entry.rust-lightsout]
+crates_io_id = false
+repository_url = "https://github.com/imbaczek/rust-lightsout"
 
 [entry.rust-pong]
+crates_io_id = false
+repository_url = "https://github.com/Coeuvre/rust-pong"
 
 [entry.pong-rs]
+crates_io_id = false
+repository_url = "https://github.com/justinsacbibit/pong-rs"
 
 [entry.rust-snake]
+crates_io_id = false
+repository_url = "https://github.com/bvssvni/rust-snake"
 
 [entry.rusty-tetris]
+crates_io_id = false
+repository_url = "https://github.com/bachm/rusty-tetris"
 
 [entry.r_tetris]
+crates_io_id = false
+repository_url = "https://github.com/zmoshansky/r_tetris"
 
 [entry.rtetris]
+crates_io_id = false
+repository_url = "https://github.com/rjdgtn/rtetris"
 
 [entry.tetris-piston]
+crates_io_id = false
+repository_url = "https://github.com/dunnker/tetris-piston"
 
 [entry.game-of-life]
+crates_io_id = false
+repository_url = "https://github.com/Arcterus/game-of-life"
 
 [entry.snake]
+crates_io_id = false
+repository_url = "https://github.com/Arcterus/rust-snake"
 
 [entry.hematite]
 
 [entry.playform-server]
+crates_io_id = false
+repository_url = "https://github.com/bfops/playform"
 
 [entry.rustyhex]
+crates_io_id = false
+repository_url = "https://github.com/dpc/rustyhex"
 
 [entry.seabirdsbreakfast]
+crates_io_id = false
+repository_url = "https://github.com/bvssvni/ld31"
 
 [entry.colonize]
+crates_io_id = false
+repository_url = "https://github.com/indiv0/colonize"
 
 [entry.minesweeper-rs]
+crates_io_id = false
+repository_url = "https://github.com/Vinatorul/minesweeper-rs"
 
 [entry.puzzlefighter]
+crates_io_id = false
+repository_url = "https://github.com/xaviershay/rust-puzzlefighter"
 
 [entry.angolmois]
+crates_io_id = false
+repository_url = "https://github.com/lifthrasiir/angolmois-rust"
 
 [entry.sokoban-rs]
 
 [entry.zoc]
-
-
+crates_io_id = false
+repository_url = "https://github.com/ozkriff/zoc"

@@ -3,4 +3,6 @@ description = "Integrated Development Environments for Rust."
 related     = ["text-editors", "development-tools"]
 
 [entry.solidoak]
-
+crates_io_id = false
+name = "SolidOak"
+repository_url = "https://github.com/oakes/SolidOak"

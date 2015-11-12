@@ -1,4 +1,0 @@
-title       = "MySQL Drivers"
-description = "Rust drivers for MySQL"
-related     = ["http-servers", "web-frameworks"]
-

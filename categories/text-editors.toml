@@ -1,4 +1,4 @@
 title       = "Text Editors"
-related     = ["linux-utils", "development-tools", "ide"]
+related     = ["development-tools", "ide"]
 
 [entry.iota]

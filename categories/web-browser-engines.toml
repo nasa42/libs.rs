@@ -1,4 +1,6 @@
-title       = "Databases"
+title       = "Web Browser Engines"
 related     = ["web-frameworks", "http-servers"]
 
 [entry.servo]
+crates_io_id = false
+repository_url = "https://github.com/servo/servo"

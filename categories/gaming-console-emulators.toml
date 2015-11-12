@@ -2,3 +2,5 @@ title       = "Gaming Console Emulators"
 related     = ["games"]
 
 [entry.rustation]
+crates_io_id = false
+repository_url = "https://github.com/simias/rustation"

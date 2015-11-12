@@ -6,4 +6,6 @@ related     = ["text-editors", "development-tools", "ide"]
 [entry.shiny]
 
 [entry.afl-coverage]
-
+crates_io_id = false
+name = "afl-coverage"
+repository_url = "https://github.com/frewsxcv/afl.rs"

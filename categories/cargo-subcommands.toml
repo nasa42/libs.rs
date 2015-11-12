@@ -8,8 +8,12 @@ related     = ["text-editors", "development-tools", "ide"]
 [entry.cargo-do]
 
 [entry.cargo-dot]
+crates_io_id = false
+repository_url = "https://github.com/maxsnew/cargo-dot"
 
 [entry.cargo-edit]
+crates_io_id = false
+repository_url = "https://github.com/killercup/cargo-edit"
 
 [entry.cargo-fmt]
 

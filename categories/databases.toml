@@ -1,5 +1,6 @@
 title       = "Databases"
-related     = ["linux-utils", "http-servers"]
+related     = ["http-servers"]
 
 [entry.rsedis]
 crates_io_id = false
+repository_url = "https://github.com/seppo0010/rsedis"

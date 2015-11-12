@@ -4,6 +4,10 @@ require 'rubygems'
 require 'bundler/setup'
 
 $:.unshift File.expand_path("..", File.dirname(__FILE__))
+require 'lib/database'
+require 'lib/path_helper'
+
+include PathHelper
 
 def se command
   puts command
@@ -11,12 +15,12 @@ def se command
 end
 
 case ARGV[0].to_s.strip
+when "rebuild-db"
+  se "rm -f #{db_path.to_s.inspect}"
+  Database.load.prepare.save
 when "build-db"
-  require 'lib/database'
   Database.load.prepare.save
 when "deploy"
-  require 'lib/path_helper'
-  include PathHelper
   se "middleman build --clean"
   se "rm -rf #{gh_pages_repo_path.to_s.inspect}"
   se "mkdir -p #{gh_pages_repo_path.to_s.inspect}"

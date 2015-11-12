@@ -83,7 +83,7 @@ class Entry
   end
 
   def name 
-    @payload.name || crate_cache.name.to_s.titlecase.presence || @id
+    @payload.name || crate_cache.name.to_s.titlecase.presence || @id.titlecase
   end
 
   def description
@@ -223,7 +223,9 @@ class Entry
         )
     end
   rescue RestClient::ResourceNotFound => e
-    puts "Cargo.toml was not found for #{id_with_cat}"
+    # TODO: use key cargo_toml_url and set it to false for projects
+    # without Cargo.toml
+    puts "[ERROR] Cargo.toml was not found for #{id_with_cat}"
     return Mash.new
   end
 

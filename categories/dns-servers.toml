@@ -1,4 +1,4 @@
 title       = "DNS Servers"
-related     = ["http-servers", "mysql-drivers"]
+related     = ["http-servers"]
 
 [entry.trust-dns]

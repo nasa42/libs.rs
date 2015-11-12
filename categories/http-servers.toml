@@ -1,6 +1,6 @@
 title       = "HTTP Servers"
 description = "HTTP server libraries in Rust."
-related     = ["mysql-drivers", "web-frameworks"]
+related     = ["web-frameworks"]
 
 [entry.hyper]
 
