@@ -18,11 +18,13 @@ By default Rust Libraries picks all necessary information from [crates.io](https
 
     [entry.iron]
     
-    # By default, NAME in [entry.NAME] is the crates.io ID, but you can override it here
+    # By default, NAME in [entry.NAME] is the crates.io ID, but you can
+    # override it here
     # or use the value `false` if your project is not on crates.io
     crates_io_id = "iron"
     
-    # Name is automatically picked from crates.io, but you can override it here
+    # Name is automatically picked from crates.io, but you can
+    # override it here
     name = "Iron"
     
     # Custom homepage URL
