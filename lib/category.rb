@@ -16,7 +16,7 @@ class Category
     def all
       Dir.chdir(categories_path) do
         return Dir["*.toml"].map do |path|
-          new path.sub(/\.toml$/, ''), TOML.load_file(path)
+          new path.sub(/\.toml$/, '')
         end
       end
     end
@@ -26,9 +26,13 @@ class Category
     end
   end
 
-  def initialize id, toml
+  def initialize id, toml = nil
     @id = id
-    @toml = Mash.new toml
+    if toml.nil?
+      @toml = Mash.new TOML.load_file(self.class.find_path(@id))
+    else
+      @toml = Mash.new toml
+    end
   end
 
   def title
@@ -45,7 +49,7 @@ class Category
 
   def related
     @toml.related.map do |id|
-      self.class.new id, TOML.load_file(self.class.find_path(id))
+      self.class.new id
     end
   end
 
@@ -59,6 +63,10 @@ class Category
     @entries ||= unsorted_entries.sort_by do |entry|
       entry.weight(max_stars, max_forks, max_downloads)
     end.reverse
+  end
+
+  def find_entry entry_id
+    unsorted_entries.detect { |e| e.id.to_s == entry_id.to_s }
   end
 
   def max_stars

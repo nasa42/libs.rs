@@ -54,7 +54,7 @@ class Database
         if cache_expired?(cat, entry)
           write_cache(cat, entry, entry.fetch_from_origin)
         else
-          puts "Skipping cache generation for #{cat.title}/#{entry.name} (last run was at #{Time.at read_cache(cat, entry).fetch_timestamp})"
+          puts "Skipping cache generation for #{entry.id_with_cat} (last run was at #{Time.at read_cache(cat, entry).fetch_timestamp})"
         end
       end
     end
@@ -67,6 +67,10 @@ class Database
 
   def write_cache cat, entry, payload
     @db.cache!.fetch!(cat.id)[entry.id] = payload.merge(fetch_timestamp: Time.now.tv_sec)
+  end
+
+  def expire_cache cat, entry
+    read_cache(cat, entry).fetch_timestamp = 0
   end
 
   def cache_expired? cat, entry
