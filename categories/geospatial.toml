@@ -1,0 +1,26 @@
+title       = "Geospatial Tools"
+related     = ["text-editors", "development-tools", "ide"]
+
+[entry.gdal]
+
+[entry.geo]
+
+[entry.geocoding]
+
+[entry.geohash]
+
+[entry.geojson]
+
+[entry.gpx]
+
+[entry.osm]
+
+[entry.proj]
+
+[entry.shapefile]
+
+[entry.topojson]
+
+[entry.wkt]
+
+[entry.world-file]

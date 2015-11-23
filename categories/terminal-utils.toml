@@ -1,0 +1,4 @@
+title       = "Terminal Utilities"
+related     = ["text-editors", "development-tools", "ide", "cli-argument-parsers"]
+
+[entry.termsize]

@@ -98,7 +98,8 @@ class Entry
   end
 
   def licence
-    crate_cache.license.presence ||
+    @payload.licence.presence ||
+      crate_cache.license.presence ||
       cargo_toml_cache.package!.license
   end
 

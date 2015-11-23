@@ -1,0 +1,7 @@
+title       = "Operating Systems"
+related     = ["text-editors", "development-tools", "ide"]
+
+[entry.redox]
+crates_io_id = false
+repository_url = "https://github.com/redox-os/redox"
+licence = "MIT"

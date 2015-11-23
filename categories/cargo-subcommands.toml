@@ -1,6 +1,8 @@
 title       = "Cargo Subcommands"
 related     = ["text-editors", "development-tools", "ide"]
 
+[entry.cargo-brew]
+
 [entry.cargo-check]
 
 [entry.cargo-count]
@@ -14,6 +16,8 @@ repository_url = "https://github.com/maxsnew/cargo-dot"
 [entry.cargo-edit]
 crates_io_id = false
 repository_url = "https://github.com/killercup/cargo-edit"
+
+[entry.cargo-extras]
 
 [entry.cargo-fmt]
 
