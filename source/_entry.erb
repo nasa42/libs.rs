@@ -47,14 +47,16 @@
   <p></p>
 
   <div class="row">
-    <div class="col-sm-4">
-      <small>
-        <%= fa_icon "download" %>
-        Crate Downloads
-      </small>
-      <br />
-      <%= entry.crates_io_downloads %>
-    </div>
+    <% if entry.crates_io_id %>
+      <div class="col-sm-4">
+        <small>
+          <%= fa_icon "download" %>
+          Crate Downloads
+        </small>
+        <br />
+        <%= entry.crates_io_downloads %>
+      </div>
+    <% end %>
     <div class="col-sm-4">
       <small>
         <%= fa_icon "star" %>
