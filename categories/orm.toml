@@ -1,4 +1,4 @@
-title       = "Object Relational Mappers (ORM)"
+title       = "Object Relational Mapping (ORM)"
 related     = ["databases", "database-drivers", "web-frameworks"]
 
 [entry.deuterium]
