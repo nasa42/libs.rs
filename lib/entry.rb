@@ -3,6 +3,7 @@ require 'toml'
 require 'active_support'
 require 'active_support/core_ext/object/blank'
 require 'active_support/core_ext/enumerable'
+require 'lib/core_extensions'
 require 'lib/mash'
 require 'lib/database'
 
@@ -190,15 +191,15 @@ class Entry
   def fetch_from_crates_io
     @crates_io_response ||= -> do
       if crates_io_id.blank?
-        puts "crates.io is not available for #{id_with_cat}"
+        log_info "crates.io is not available for #{id_with_cat}"
         return Mash.new
       end
-      puts "Fetching crates.io/#{crates_io_id}"
+      log_info "Fetching crates.io/#{crates_io_id}"
       begin
         rest = RestClient::Resource.new(CRATES_IO_API_ENDPOINT)
         return Mash.new JSON.parse(rest["crates/#{crates_io_id}"].get.body)
       rescue RestClient::ResourceNotFound => e
-        puts "[ERROR] #{e.class} - #{e.message} - for #{id_with_cat} while fetching crates.io/#{crates_io_id}"
+        log_error "#{e.class} - #{e.message} - for #{id_with_cat} while fetching crates.io/#{crates_io_id}"
         return Mash.new
       end
     end.call
@@ -206,7 +207,7 @@ class Entry
 
   def fetch_from_github
     rest_for_github_repo do |rest|
-      puts "Fetching github.com/#{github_repo}"
+      log_info "Fetching github.com/#{github_repo}"
       Mash.new JSON.parse(rest["repos/#{github_repo}"].get.body)
     end
   end
@@ -214,7 +215,7 @@ class Entry
   # TODO: Add support for raw urls to TOML files
   def fetch_cargo_toml
     rest_for_github_repo do |rest|
-      puts "Fetching Cargo.toml from github.com/#{github_repo}"
+      log_info "Fetching Cargo.toml from github.com/#{github_repo}"
       Mash.new(
         TOML.parse(
           Base64.decode64(
@@ -226,7 +227,7 @@ class Entry
   rescue RestClient::ResourceNotFound => e
     # TODO: use key cargo_toml_url and set it to false for projects
     # without Cargo.toml
-    puts "[ERROR] Cargo.toml was not found for #{id_with_cat}"
+    log_error "Cargo.toml was not found for #{id_with_cat}"
     return Mash.new
   end
 

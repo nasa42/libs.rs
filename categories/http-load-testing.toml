@@ -1,0 +1,7 @@
+title       = "HTTP Load Testing"
+related     = ["http-servers"]
+
+[entry.herd]
+crates_io_id = false
+repository_url = "https://github.com/imjacobclark/Herd"
+licence = "GPL v2"

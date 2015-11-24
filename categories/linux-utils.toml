@@ -1,0 +1,6 @@
+title       = "Linux Utilities"
+related     = ["http-servers"]
+
+[entry.uutils]
+crates_io_id = false
+repository_url = "https://github.com/uutils/coreutils"

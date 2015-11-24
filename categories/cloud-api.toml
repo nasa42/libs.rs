@@ -1,0 +1,11 @@
+title       = "Cloud API Wrappers"
+related     = ["web-frameworks", "http-servers"]
+
+[entry.aws]
+crates_io_id = false
+repository_url = "https://github.com/thommay/aws-rs"
+licence = "MIT"
+
+[entry.doapi]
+
+[entry.rusoto]

@@ -1,0 +1,49 @@
+title       = "Audio Processing"
+related     = ["development-tools"]
+
+[entry.coreaudio-rs]
+
+[entry.dsp-chain]
+
+[entry.ears]
+crates_io_id = false
+repository_url = "https://github.com/JeremyLetang/ears"
+licence = "MIT"
+
+[entry.envelope]
+
+[entry.fmod]
+
+[entry.musical_keyboard]
+
+[entry.openal-rs]
+
+[entry.panning]
+
+[entry.pitch_calc]
+
+[entry.portaudio]
+
+[entry.portmidi]
+
+[entry.rimd]
+crates_io_id = false
+repository_url = "https://github.com/RustAudio/rimd"
+licence = "MIT"
+
+[entry.rms]
+
+[entry.rust-jack]
+crates_io_id = false
+repository_url = "https://github.com/RustAudio/rust-jack"
+licence = "LGPL v2.1"
+
+[entry.sample]
+
+[entry.sound_stream]
+
+[entry.synth]
+
+[entry.time_calc]
+
+[entry.volume]

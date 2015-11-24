@@ -1,0 +1,9 @@
+title       = "IDE Plugins"
+description = "Rust language support plugins Integrated Development Environments"
+related     = ["ide", "text-editors", "development-tools"]
+
+[entry.VisualRust]
+crates_io_id = false
+name = "Visual Rust"
+repository_url = "https://github.com/PistonDevelopers/VisualRust"
+licence = "MIT"

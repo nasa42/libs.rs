@@ -1,6 +1,35 @@
-title       = "Databases"
-related     = ["http-servers"]
+title       = "Database Drivers"
+related     = ["orm", "http-servers"]
+
+[entry.cassandra]
+
+[entry.lmdb-rs]
+
+[entry.mongodb]
+
+[entry.mysql]
+
+[entry.postgres]
+
+[entry.redis]
+
+[entry.rusqlite]
+
+[entry.rust-sqlite]
+
+[entry.rs-es]
 
 [entry.rsedis]
 crates_io_id = false
 repository_url = "https://github.com/seppo0010/rsedis"
+
+[entry.sherwood]
+crates_io_id = false
+repository_url = "https://github.com/vhbit/sherwood"
+licence = "MIT"
+
+[entry.sqlite3]
+crates_io_id = false
+name = "Rust-Sqlite3"
+repository_url = "https://github.com/dckc/rust-sqlite3"
+licence = "MIT"

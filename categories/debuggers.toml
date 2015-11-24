@@ -1,0 +1,8 @@
+title       = "Debuggers"
+related     = ["development-tools", "text-editors"]
+
+[entry.rust-gdb]
+crates_io_id = false
+name = "rust-gdb"
+repository_url = "https://github.com/rust-lang/rust"
+homepage_url = "https://github.com/rust-lang/rust/blob/master/src/etc/rust-gdb"

@@ -1,0 +1,10 @@
+title       = "Compression"
+related     = ["cryptography"]
+
+[entry.bzip2]
+
+[entry.flate2]
+
+[entry.tar]
+
+[entry.zip]

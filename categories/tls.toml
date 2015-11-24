@@ -1,0 +1,7 @@
+title       = "Transport Layer Security (TLS)"
+related     = ["tls", "compression"]
+
+[entry.suruga]
+crates_io_id = false
+repository_url = "https://github.com/klutzy/suruga"
+licence = "MIT"

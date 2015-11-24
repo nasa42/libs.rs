@@ -20,6 +20,9 @@ related     = ["text-editors", "development-tools", "ide"]
 [entry.shapefile]
 
 [entry.topojson]
+crates_io_id = false
+repository_url = "https://github.com/georust/rust-topojson"
+licence = "MIT"
 
 [entry.wkt]
 

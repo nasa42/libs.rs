@@ -9,14 +9,23 @@ repository_url = "https://github.com/clog-tool/clog-cli"
 
 [entry.rusty-tags]
 
-[entry.stopwatch]
+[entry.clog-cli]
 
 [entry.crate-deps]
 
 [entry.clippy]
 
+[entry.multirust]
+crates_io_id = false
+repository_url = "https://github.com/brson/multirust"
+
+[entry.multirust-rs]
+crates_io_id = false
+repository_url = "https://github.com/Diggsey/multirust-rs"
+licence = "MIT"
+
 [entry.rustfmt]
 
 [entry.racer]
 
-
+[entry.stopwatch]

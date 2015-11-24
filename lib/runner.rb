@@ -1,3 +1,4 @@
+require 'lib/core_extensions'
 require 'lib/database'
 require 'lib/path_helper'
 
@@ -14,11 +15,6 @@ class Runner
     # continue
   end
 
-  def se command
-    puts command
-    exit(1) unless system command
-  end
-
   def run
     case ARGV[0].to_s.strip
     when "expire-cache"
@@ -33,6 +29,7 @@ class Runner
     else
       raise "Unknown command '#{ARGV[0]}'. Valid commands are: build-db, deploy, rebuild-db, expire-cache."
     end
+    log_info all_error_messages
   end
 
   def expire_cache

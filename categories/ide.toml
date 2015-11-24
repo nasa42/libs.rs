@@ -1,6 +1,21 @@
 title       = "IDEs"
 description = "Integrated Development Environments for Rust."
-related     = ["text-editors", "development-tools"]
+related     = ["ide-plugins", "text-editors", "development-tools"]
+
+[entry.intellij-rust]
+crates_io_id = false
+repository_url = "https://github.com/alexeykudinkin/intellij-rust"
+licence = "MIT"
+
+[entry.ride]
+crates_io_id = false
+repository_url = "https://github.com/madeso/ride"
+licence = "MIT"
+
+[entry.RustDT]
+crates_io_id = false
+repository_url = "https://github.com/RustDT/RustDT"
+homepage_url = "http://rustdt.github.io/"
 
 [entry.solidoak]
 crates_io_id = false

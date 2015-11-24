@@ -2,6 +2,7 @@ require 'json'
 require 'active_support'
 require 'active_support/core_ext/date/calculations'
 require 'active_support/core_ext/time/calculations'
+require 'lib/core_extensions'
 require 'lib/path_helper'
 require 'lib/mash'
 require 'lib/category'
@@ -54,7 +55,7 @@ class Database
         if cache_expired?(cat, entry)
           write_cache(cat, entry, entry.fetch_from_origin)
         else
-          puts "Skipping cache generation for #{entry.id_with_cat} (last run was at #{Time.at read_cache(cat, entry).fetch_timestamp})"
+          log_info "Skipping cache generation for #{entry.id_with_cat} (last run was at #{Time.at read_cache(cat, entry).fetch_timestamp})"
         end
       end
     end
