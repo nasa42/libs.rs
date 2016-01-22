@@ -29,6 +29,7 @@ class Mailer < ActionMailer::Base
   def libs_rs_delivery_options
     {
       address: Database.config.smtp.host,
+      port: Database.config.smtp.port,
       user_name: Database.config.smtp.username,
       password: Database.config.smtp.password,
     }
