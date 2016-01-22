@@ -4,6 +4,7 @@ gem "middleman", "~>3.4.0"
 gem "middleman-livereload", "~> 3.1.0"
 gem "middleman-minify-html"
 
+gem "actionmailer"
 gem "toml-rb"
 gem "rest-client"
 gem "hashie"

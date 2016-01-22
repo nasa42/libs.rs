@@ -1,5 +1,6 @@
 require 'lib/core_extensions'
 require 'lib/database'
+require 'lib/mailer'
 require 'lib/path_helper'
 
 class Runner
@@ -30,6 +31,9 @@ class Runner
       raise "Unknown command '#{ARGV[0]}'. Valid commands are: build-db, deploy, rebuild-db, expire-cache."
     end
     log_info all_error_messages
+  rescue StandardError => e
+    Mailer.exception_email(e).deliver_now
+    raise
   end
 
   def expire_cache
@@ -49,6 +53,7 @@ class Runner
 
   def build_db
     Database.load.prepare.save
+    Mailer.error_log_email.deliver_now
   end
 
   def deploy

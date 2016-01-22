@@ -10,18 +10,22 @@ require 'lib/entry'
 
 class Database
   VERSION = 1
-  
+
   include PathHelper
 
   attr_reader :db
 
   class << self
     include PathHelper
-    
+
     def github_token
-      @github_token ||= File.read(tmp_path.join("github-token")).strip
+      @github_token ||= config.github_token
     end
-    
+
+    def config
+      @config ||= Mash.new(TOML.load_file(tmp_path.join("config.toml")))
+    end
+
     def load
       @@instance ||= new
     end
