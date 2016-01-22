@@ -27,8 +27,10 @@ class Runner
       build_db
     when "deploy"
       deploy
+    when "automated-bot-stuff"
+      automated_bot_stuff
     else
-      raise "Unknown command '#{ARGV[0]}'. Valid commands are: build-db, deploy, rebuild-db, expire-cache."
+      raise "Unknown command '#{ARGV[0]}'. Valid commands are: build-db, deploy, rebuild-db, expire-cache, automated-bot-stuff."
     end
     log_info all_error_messages
   rescue StandardError => e
@@ -54,6 +56,14 @@ class Runner
   def build_db
     Database.load.prepare.save
     Mailer.error_log_email.deliver_now
+  end
+
+  def automated_bot_stuff
+    se "git fetch --all"
+    se "git reset --hard origin/master"
+    se "bundle"
+    build_db
+    deploy
   end
 
   def deploy
