@@ -61,7 +61,6 @@ class Runner
   def automated_bot_stuff
     se "git fetch --all"
     se "git reset --hard origin/master"
-    se "bundle"
     build_db
     deploy
   end
