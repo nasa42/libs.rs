@@ -7,5 +7,5 @@ related     = ["text-editors", "development-tools", "ide"]
 
 [entry.afl-coverage]
 crates_io_id = false
-name = "afl-coverage"
+name = "afl"
 repository_url = "https://github.com/frewsxcv/afl.rs"
