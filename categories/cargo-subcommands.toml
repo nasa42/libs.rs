@@ -27,4 +27,6 @@ repository_url = "https://github.com/killercup/cargo-edit"
 
 [entry.cargo-script]
 
+[entry.cargo-show]
+
 [entry.cargo-watch]
