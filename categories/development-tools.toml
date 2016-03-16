@@ -24,6 +24,11 @@ crates_io_id = false
 repository_url = "https://github.com/Diggsey/multirust-rs"
 licence = "MIT"
 
+[entry.dybuk]
+crates_io_id = false
+repository_url = "https://github.com/Ticki/dybuk"
+licence = "MIT"
+
 [entry.rustfmt]
 
 [entry.racer]

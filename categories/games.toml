@@ -79,6 +79,10 @@ repository_url = "https://github.com/indiv0/colonize"
 crates_io_id = false
 repository_url = "https://github.com/Vinatorul/minesweeper-rs"
 
+[entry.games-for-redox]
+crates_io_id = false
+repository_url = "https://github.com/redox-os/games-for-redox"
+
 [entry.puzzlefighter]
 crates_io_id = false
 repository_url = "https://github.com/xaviershay/rust-puzzlefighter"
@@ -92,3 +96,8 @@ repository_url = "https://github.com/lifthrasiir/angolmois-rust"
 [entry.zoc]
 crates_io_id = false
 repository_url = "https://github.com/ozkriff/zoc"
+
+[entry.rugra]
+crates_io_id = false
+repository_url = "https://github.com/ticki/rugra"
+licence = "MIT"
