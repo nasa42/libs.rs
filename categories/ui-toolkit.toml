@@ -1,0 +1,10 @@
+title       = "UI Toolkits"
+related     = ["development-tools"]
+
+
+[entry.gtk]
+
+crates_io_id = "gtk"
+name = "Gtk+"
+homepage_url = "http://gtk-rs.org/"
+repository_url = "https://github.com/gtk-rs/gtk"
