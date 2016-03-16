@@ -3,6 +3,8 @@ related     = ["databases", "database-drivers", "web-frameworks"]
 
 [entry.deuterium]
 
+[entry.diesel]
+
 [entry.rustorm]
 
 [entry.treasure]
