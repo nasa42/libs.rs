@@ -6,6 +6,8 @@ related     = ["http-servers", "ide", "text-editors"]
 
 [entry.iron]
 
+[entry.pencil]
+
 [entry.rustful]
 
 [entry.nickel]
