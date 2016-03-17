@@ -6,9 +6,6 @@ related     = ["development-tools"]
 [entry.dsp-chain]
 
 [entry.ears]
-crates_io_id = false
-repository_url = "https://github.com/JeremyLetang/ears"
-licence = "MIT"
 
 [entry.envelope]
 
