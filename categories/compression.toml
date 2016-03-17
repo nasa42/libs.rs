@@ -8,3 +8,7 @@ related     = ["cryptography"]
 [entry.tar]
 
 [entry.zip]
+
+[entry.zstd]
+
+[entry.lz4]
