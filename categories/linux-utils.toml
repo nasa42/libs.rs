@@ -4,3 +4,13 @@ related     = ["http-servers"]
 [entry.uutils]
 crates_io_id = false
 repository_url = "https://github.com/uutils/coreutils"
+
+[entry.coreutils]
+crates_io_id = false
+repository_url = "https://github.com/redox-os/coreutils"
+licence = "MIT"
+
+[entry.extrautils]
+crates_io_id = false
+repository_url = "https://github.com/redox-os/extrautils"
+licence = "MIT"

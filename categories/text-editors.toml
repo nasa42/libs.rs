@@ -2,3 +2,8 @@ title       = "Text Editors"
 related     = ["development-tools", "ide"]
 
 [entry.iota]
+
+[entry.sodium]
+crates_io_id = false
+repository_url = "https://github.com/redox-os/sodium"
+licence = "MIT"
