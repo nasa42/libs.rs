@@ -1,10 +1,6 @@
 title       = "Development Tools"
 related     = ["text-editors"]
 
-[entry.colg-cli]
-crates_io_id = false
-repository_url = "https://github.com/clog-tool/clog-cli"
-
 [entry.bindgen]
 
 [entry.rusty-tags]
