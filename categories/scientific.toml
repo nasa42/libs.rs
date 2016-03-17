@@ -1,0 +1,19 @@
+title       = "Scientific libraries"
+
+[entry.ndarray]
+
+[entry.cublas]
+
+[entry.cudnn]
+
+[entry.blas]
+
+[entry.rblas]
+
+[entry.gsl]
+
+[entry.bio]
+
+[entry.leaf]
+
+[entry.collenchyma]
