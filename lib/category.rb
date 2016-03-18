@@ -9,10 +9,10 @@ require 'lib/entry'
 class Category
 
   attr_reader :id
-  
+
   class << self
     include PathHelper
-    
+
     def all
       Dir.chdir(categories_path) do
         return Dir["*.toml"].map do |path|
@@ -48,7 +48,7 @@ class Category
   end
 
   def related
-    @toml.related.map do |id|
+    (@toml.related || []).map do |id|
       self.class.new id
     end
   end
