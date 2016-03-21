@@ -3,6 +3,8 @@ related     = ["databases", "orm", "http-servers"]
 
 [entry.cassandra]
 
+[entry.couchdb]
+
 [entry.etcd]
 
 [entry.lmdb-rs]
