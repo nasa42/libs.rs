@@ -6,22 +6,22 @@
 <meta content="IE=edge,chrome=1" http-equiv=X-UA-Compatible />
 <meta name=viewport content="width=device-width, initial-scale=1"/>
 
-<title>Object Relational Mapping (ORM) &mdash; Rust Libraries</title>
-<meta property="og:title" content="Object Relational Mapping (ORM) &mdash; Rust Libraries"/>
+<title>Parsers &mdash; Rust Libraries</title>
+<meta property="og:title" content="Parsers &mdash; Rust Libraries"/>
 <meta property="og:type" content=website />
-<meta property="og:url" content="http://libs.rs/orm/"/>
+<meta property="og:url" content="http://libs.rs/parsers/"/>
 <meta property="og:image" content="https://www.rust-lang.org/logos/rust-logo-blk.svg"/>
 <meta property="og:site_name" content="Rust Libraries"/>
 <meta property="og:locale" content=en-GB />
-<meta itemprop=name content="Object Relational Mapping (ORM) &mdash; Rust Libraries"/>
+<meta itemprop=name content="Parsers &mdash; Rust Libraries"/>
 <meta itemprop=image content="https://www.rust-lang.org/logos/rust-logo-blk.svg"/>
-<link rel=canonical href="http://libs.rs/orm/"/>
+<link rel=canonical href="http://libs.rs/parsers/"/>
 <link rel=copyright href="https://creativecommons.org/publicdomain/zero/1.0/"/>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel=stylesheet />
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel=stylesheet />
 <link href="/stylesheets/main.css" rel=stylesheet />
 </head>
-<body class="orm orm_index">
+<body class="parsers parsers_index">
 <header class=site-header>
 <nav class="navbar navbar-default">
 <div class="container wrapper">
@@ -41,7 +41,7 @@
 <div class="container wrapper">
 <div class=row>
 <div class=col-md-12>
-<h1>Object Relational Mapping (ORM)</h1>
+<h1>Parsers</h1>
 <p></p>
 </div>
 </div>
@@ -50,89 +50,22 @@
 <article class=entry>
 <div class=row>
 <div class=col-md-12>
-<h2>Diesel</h2>
+<h2>Nom</h2>
 </div>
 </div>
-<p>A safe, extensible ORM and Query builder</p>
+<p>A byte-oriented, zero-copy, parser combinators library</p>
 <div class=row>
 <div class=col-sm-4>
 <i class="fa fa-cube"></i>
-<a href="https://crates.io/crates/diesel">crates.io</a>
+<a href="https://crates.io/crates/nom">crates.io</a>
 </div>
 <div class=col-sm-4>
 <i class="fa fa-home"></i>
-<a href="http://diesel.rs">Homepage</a>
+<a href="https://github.com/Geal/nom">Homepage</a>
 </div>
 <div class=col-sm-4>
 <i class="fa fa-github"></i>
-<a href="https://github.com/sgrif/diesel">Repository</a>
-</div>
-</div>
-<p></p>
-<div class=row>
-<div class=col-sm-4>
-<small>Licence</small>
-<br/>
-MIT OR Apache-2.0
-</div>
-<div class=col-sm-4>
-<small>Latest Version</small>
-<br/>
-0.5.3
-</div>
-<div class=col-sm-4>
-<small>Last Update</small>
-<br/>
-<time datetime="2016-03-22T03:44:40Z">22 March 2016</time>
-</div>
-</div>
-<p></p>
-<div class=row>
-<div class=col-sm-4>
-<small>
-<i class="fa fa-download"></i>
-Crate Downloads
-</small>
-<br/>
-1742
-</div>
-<div class=col-sm-4>
-<small>
-<i class="fa fa-star"></i>
-GitHub Stars
-</small>
-<br/>
-771
-</div>
-<div class=col-sm-4>
-<small>
-<i class="fa fa-code-fork"></i>
-GitHub Forks
-</small>
-<br/>
-47
-</div>
-</div>
-</article>
-<article class=entry>
-<div class=row>
-<div class=col-md-12>
-<h2>Rustorm</h2>
-</div>
-</div>
-<p>An ORM for rust</p>
-<div class=row>
-<div class=col-sm-4>
-<i class="fa fa-cube"></i>
-<a href="https://crates.io/crates/rustorm">crates.io</a>
-</div>
-<div class=col-sm-4>
-<i class="fa fa-home"></i>
-<a href="https://github.com/ivanceras/rustorm">Homepage</a>
-</div>
-<div class=col-sm-4>
-<i class="fa fa-github"></i>
-<a href="https://github.com/ivanceras/rustorm">Repository</a>
+<a href="https://github.com/Geal/nom">Repository</a>
 </div>
 </div>
 <p></p>
@@ -145,12 +78,12 @@ MIT
 <div class=col-sm-4>
 <small>Latest Version</small>
 <br/>
-0.4.3
+1.2.2
 </div>
 <div class=col-sm-4>
 <small>Last Update</small>
 <br/>
-<time datetime="2016-01-29T14:47:50Z">29 January 2016</time>
+<time datetime="2016-03-19T18:13:46Z">19 March 2016</time>
 </div>
 </div>
 <p></p>
@@ -161,7 +94,7 @@ MIT
 Crate Downloads
 </small>
 <br/>
-1178
+49870
 </div>
 <div class=col-sm-4>
 <small>
@@ -169,7 +102,7 @@ Crate Downloads
 GitHub Stars
 </small>
 <br/>
-116
+736
 </div>
 <div class=col-sm-4>
 <small>
@@ -177,28 +110,96 @@ GitHub Stars
 GitHub Forks
 </small>
 <br/>
-16
+72
 </div>
 </div>
 </article>
 <article class=entry>
 <div class=row>
 <div class=col-md-12>
-<h2>Deuterium</h2>
+<h2>Lalrpop</h2>
 </div>
 </div>
-<p>Deuterium is a fancy SQL builder for Rust. It's designed to provide a DSL to easily build SQL queries in safe and *typed* way.</p>
+<p>convenient LR(1) parser generator</p>
 <div class=row>
 <div class=col-sm-4>
 <i class="fa fa-cube"></i>
-<a href="https://crates.io/crates/deuterium">crates.io</a>
+<a href="https://crates.io/crates/lalrpop">crates.io</a>
 </div>
 <div class=col-sm-4>
 <i class="fa fa-home"></i>
-<a href="https://crates.io/crates/deuterium">Homepage</a>
+<a href="https://github.com/nikomatsakis/lalrpop">Homepage</a>
 </div>
 <div class=col-sm-4>
-<a href="#">Repository</a>
+<i class="fa fa-github"></i>
+<a href="https://github.com/nikomatsakis/lalrpop">Repository</a>
+</div>
+</div>
+<p></p>
+<div class=row>
+<div class=col-sm-4>
+<small>Licence</small>
+<br/>
+Apache-2.0/MIT
+</div>
+<div class=col-sm-4>
+<small>Latest Version</small>
+<br/>
+0.11.0
+</div>
+<div class=col-sm-4>
+<small>Last Update</small>
+<br/>
+<time datetime="2016-03-22T10:04:38Z">22 March 2016</time>
+</div>
+</div>
+<p></p>
+<div class=row>
+<div class=col-sm-4>
+<small>
+<i class="fa fa-download"></i>
+Crate Downloads
+</small>
+<br/>
+1873
+</div>
+<div class=col-sm-4>
+<small>
+<i class="fa fa-star"></i>
+GitHub Stars
+</small>
+<br/>
+202
+</div>
+<div class=col-sm-4>
+<small>
+<i class="fa fa-code-fork"></i>
+GitHub Forks
+</small>
+<br/>
+18
+</div>
+</div>
+</article>
+<article class=entry>
+<div class=row>
+<div class=col-md-12>
+<h2>Combine</h2>
+</div>
+</div>
+<p>Parser combinators based on the Haskell library parsec.</p>
+<div class=row>
+<div class=col-sm-4>
+<i class="fa fa-cube"></i>
+<a href="https://crates.io/crates/combine">crates.io</a>
+</div>
+<div class=col-sm-4>
+<i class="fa fa-home"></i>
+<a href="https://github.com/Marwes/combine">Homepage</a>
+</div>
+<div class=col-sm-4>
+<i class="fa fa-github"></i>
+<a href="https://github.com/Marwes/combine">Repository</a>
 </div>
 </div>
 <p></p>
@@ -211,12 +212,12 @@ MIT
 <div class=col-sm-4>
 <small>Latest Version</small>
 <br/>
-0.4.0
+1.2.1
 </div>
 <div class=col-sm-4>
 <small>Last Update</small>
 <br/>
-N/A
+<time datetime="2016-02-18T20:58:30Z">18 February 2016</time>
 </div>
 </div>
 <p></p>
@@ -227,7 +228,7 @@ N/A
 Crate Downloads
 </small>
 <br/>
-1180
+1730
 </div>
 <div class=col-sm-4>
 <small>
@@ -235,7 +236,7 @@ Crate Downloads
 GitHub Stars
 </small>
 <br/>
-0
+133
 </div>
 <div class=col-sm-4>
 <small>
@@ -243,29 +244,29 @@ GitHub Stars
 GitHub Forks
 </small>
 <br/>
-0
+11
 </div>
 </div>
 </article>
 <article class=entry>
 <div class=row>
 <div class=col-md-12>
-<h2>Treasure</h2>
+<h2>Chomp</h2>
 </div>
 </div>
-<p>ORM for rust</p>
+<p>A fast monadic-style parser combinator designed to work on stable Rust.</p>
 <div class=row>
 <div class=col-sm-4>
 <i class="fa fa-cube"></i>
-<a href="https://crates.io/crates/treasure">crates.io</a>
+<a href="https://crates.io/crates/chomp">crates.io</a>
 </div>
 <div class=col-sm-4>
 <i class="fa fa-home"></i>
-<a href="https://github.com/phonkee/treasure">Homepage</a>
+<a href="http://github.com/m4rw3r/chomp">Homepage</a>
 </div>
 <div class=col-sm-4>
 <i class="fa fa-github"></i>
-<a href="https://github.com/phonkee/treasure">Repository</a>
+<a href="http://github.com/m4rw3r/chomp">Repository</a>
 </div>
 </div>
 <p></p>
@@ -273,17 +274,17 @@ GitHub Forks
 <div class=col-sm-4>
 <small>Licence</small>
 <br/>
-AML
+MIT
 </div>
 <div class=col-sm-4>
 <small>Latest Version</small>
 <br/>
-0.1.0
+0.2.5
 </div>
 <div class=col-sm-4>
 <small>Last Update</small>
 <br/>
-<time datetime="2015-08-09T03:57:37Z">9 August 2015</time>
+<time datetime="2016-03-19T01:36:19Z">19 March 2016</time>
 </div>
 </div>
 <p></p>
@@ -294,7 +295,7 @@ AML
 Crate Downloads
 </small>
 <br/>
-260
+1250
 </div>
 <div class=col-sm-4>
 <small>
@@ -302,7 +303,141 @@ Crate Downloads
 GitHub Stars
 </small>
 <br/>
-40
+94
+</div>
+<div class=col-sm-4>
+<small>
+<i class="fa fa-code-fork"></i>
+GitHub Forks
+</small>
+<br/>
+7
+</div>
+</div>
+</article>
+<article class=entry>
+<div class=row>
+<div class=col-md-12>
+<h2>Oak</h2>
+</div>
+</div>
+<p>A typed parser generator syntax extension for Parsing Expression Grammar (PEG).</p>
+<div class=row>
+<div class=col-sm-4>
+<i class="fa fa-cube"></i>
+<a href="https://crates.io/crates/oak">crates.io</a>
+</div>
+<div class=col-sm-4>
+<i class="fa fa-home"></i>
+<a href="https://github.com/ptal/oak">Homepage</a>
+</div>
+<div class=col-sm-4>
+<i class="fa fa-github"></i>
+<a href="https://github.com/ptal/oak">Repository</a>
+</div>
+</div>
+<p></p>
+<div class=row>
+<div class=col-sm-4>
+<small>Licence</small>
+<br/>
+Apache-2.0
+</div>
+<div class=col-sm-4>
+<small>Latest Version</small>
+<br/>
+0.3.15
+</div>
+<div class=col-sm-4>
+<small>Last Update</small>
+<br/>
+<time datetime="2016-02-26T03:33:32Z">26 February 2016</time>
+</div>
+</div>
+<p></p>
+<div class=row>
+<div class=col-sm-4>
+<small>
+<i class="fa fa-download"></i>
+Crate Downloads
+</small>
+<br/>
+506
+</div>
+<div class=col-sm-4>
+<small>
+<i class="fa fa-star"></i>
+GitHub Stars
+</small>
+<br/>
+73
+</div>
+<div class=col-sm-4>
+<small>
+<i class="fa fa-code-fork"></i>
+GitHub Forks
+</small>
+<br/>
+4
+</div>
+</div>
+</article>
+<article class=entry>
+<div class=row>
+<div class=col-md-12>
+<h2>Parsell</h2>
+</div>
+</div>
+<p>Parsell LL(1) streaming parser combinators</p>
+<div class=row>
+<div class=col-sm-4>
+<i class="fa fa-cube"></i>
+<a href="https://crates.io/crates/parsell">crates.io</a>
+</div>
+<div class=col-sm-4>
+<i class="fa fa-home"></i>
+<a href="https://github.com/asajeffrey/parsell">Homepage</a>
+</div>
+<div class=col-sm-4>
+<i class="fa fa-github"></i>
+<a href="https://github.com/asajeffrey/parsell">Repository</a>
+</div>
+</div>
+<p></p>
+<div class=row>
+<div class=col-sm-4>
+<small>Licence</small>
+<br/>
+MPL-2.0
+</div>
+<div class=col-sm-4>
+<small>Latest Version</small>
+<br/>
+0.6.5
+</div>
+<div class=col-sm-4>
+<small>Last Update</small>
+<br/>
+<time datetime="2016-03-16T17:45:36Z">16 March 2016</time>
+</div>
+</div>
+<p></p>
+<div class=row>
+<div class=col-sm-4>
+<small>
+<i class="fa fa-download"></i>
+Crate Downloads
+</small>
+<br/>
+150
+</div>
+<div class=col-sm-4>
+<small>
+<i class="fa fa-star"></i>
+GitHub Stars
+</small>
+<br/>
+35
 </div>
 <div class=col-sm-4>
 <small>
@@ -318,9 +453,10 @@ GitHub Forks
 <div class="col-md-3 sidebar text-right">
 <h4>Related Categories</h4>
 <ul class=list-unstyled>
-<li><a href="/databases/">Databases</a></li>
-<li><a href="/database-drivers/">Database Bindings</a></li>
-<li><a title="Web frameworks in Rust" href="/web-frameworks/">Web Frameworks</a></li>
+<li><a href="/csv-parsers/">CSV Parsers</a></li>
+<li><a href="/text-editors/">Text Editors</a></li>
+<li><a href="/development-tools/">Development Tools</a></li>
+<li><a title="Integrated Development Environments for Rust." href="/ide/">IDEs</a></li>
 </ul>
 </div>
 </div>
