@@ -7,3 +7,9 @@ related     = ["text-editors", "development-tools", "ide", "cli-argument-parsers
 crates_io_id = false
 repository_url = "https://github.com/ticki/termion"
 licence = "MIT"
+
+[entry.ansi_term]
+
+[entry.term-painter]
+
+[entry.colored]
