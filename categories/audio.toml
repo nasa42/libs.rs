@@ -44,3 +44,7 @@ licence = "LGPL v2.1"
 [entry.time_calc]
 
 [entry.volume]
+
+[entry.ladspa]
+
+[entry.pvoc]
