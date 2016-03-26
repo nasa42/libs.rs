@@ -36,6 +36,14 @@ By default Rust Libraries picks all necessary information from [crates.io](https
 
 If your project needs additional options or you still have any questions, [file an issue](https://github.com/webstream-io/rust-libs/issues) and we'll take a look!
 
+## How are the pages published?
+
+Pages are automatically generated and published to GitHub every 6 hours by a cron job.
+
+```
+0 */6 * * * /bin/bash -l -c 'cd /path/to/libs.rs && bundle && ./script/run automated-bot-stuff >> tmp/cron.log 2>&1'
+```
+
 ----
 
 Licenced under [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
