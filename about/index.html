@@ -68,6 +68,11 @@ homepage_url = "http://ironframework.io/"
 repository_url = "https://github.com/iron/iron"
 </code></pre>
 <p>If your project needs additional options or you still have any questions, <a href="https://github.com/webstream-io/rust-libs/issues">file an issue</a> and we'll take a look!</p>
+<h2 id=how-are-the-pages-published>How are the pages published?</h2>
+<p>Pages are automatically generated and published to GitHub every 6 hours by a cron job.</p>
+<p><code>
+0 */6 * * * /bin/bash -l -c 'cd /path/to/libs.rs &amp;&amp; bundle &amp;&amp; ./script/run automated-bot-stuff &gt;&gt; tmp/cron.log 2&gt;&amp;1'
+</code></p>
 <hr/>
 <p>Licenced under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0</a>.</p>
 </div>
