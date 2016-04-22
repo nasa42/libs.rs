@@ -13,3 +13,5 @@ licence = "MIT"
 [entry.term-painter]
 
 [entry.colored]
+
+[entry.prettytable-rs]
