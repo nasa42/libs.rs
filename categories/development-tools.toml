@@ -11,14 +11,10 @@ related     = ["text-editors"]
 
 [entry.clippy]
 
-[entry.multirust]
+[entry.rustup-rs]
 crates_io_id = false
-repository_url = "https://github.com/brson/multirust"
-
-[entry.multirust-rs]
-crates_io_id = false
-repository_url = "https://github.com/Diggsey/multirust-rs"
-licence = "MIT"
+homepage_url = "https://www.rustup.rs/"
+repository_url = "https://github.com/rust-lang-nursery/rustup.rs"
 
 [entry.dybuk]
 crates_io_id = false
