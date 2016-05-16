@@ -23,6 +23,8 @@ repository_url = "https://github.com/killercup/cargo-edit"
 
 [entry.cargo-graph]
 
+[entry.cargo-info]
+
 [entry.cargo-multi]
 
 [entry.cargo-outdated]
