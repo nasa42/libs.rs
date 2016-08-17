@@ -6,8 +6,7 @@ related     = ["tls", "compression"]
 [entry.openssl]
 
 [entry.ring]
-crates_io_id = false
-repository_url = "https://github.com/briansmith/ring"
+name = "<i>ring</i>"
 
 [entry.rust-crypto]
 
