@@ -1,0 +1,12 @@
+title       = "Home Automation"
+description = "Home Automation and IoT in Rust."
+
+[entry.mqtt]
+
+[entry.mraa]
+
+[entry.openzwave]
+
+[entry.wemo]
+
+[entry.zwave]
