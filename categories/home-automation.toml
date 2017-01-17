@@ -10,3 +10,4 @@ description = "Home Automation and IoT in Rust."
 [entry.wemo]
 
 [entry.zwave]
+repository_url = "https://gitlab.com/dcuddeback/zwave"
