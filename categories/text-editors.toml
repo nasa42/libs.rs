@@ -2,6 +2,7 @@ title       = "Text Editors"
 related     = ["development-tools", "ide"]
 
 [entry.iota]
+crates_io_id = "iota-editor"
 
 [entry.sodium]
 crates_io_id = false
