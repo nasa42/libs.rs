@@ -37,8 +37,6 @@ licence = "LGPL v2.1"
 
 [entry.sample]
 
-[entry.sound_stream]
-
 [entry.synth]
 
 [entry.time_calc]
