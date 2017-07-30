@@ -27,9 +27,3 @@ related     = ["databases", "orm", "http-servers"]
 crates_io_id = false
 repository_url = "https://github.com/vhbit/sherwood"
 licence = "MIT"
-
-[entry.sqlite3]
-crates_io_id = false
-name = "Rust-Sqlite3"
-repository_url = "https://github.com/dckc/rust-sqlite3"
-licence = "MIT"
