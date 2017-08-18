@@ -12,3 +12,5 @@ related     = ["csv-parsers", "text-editors", "development-tools", "ide"]
 [entry.chomp]
 
 [entry.parsell]
+
+[entry.pest]
