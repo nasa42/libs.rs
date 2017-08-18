@@ -2,6 +2,8 @@ title       = "Web Frameworks"
 description = "Web frameworks in Rust"
 related     = ["http-servers", "ide", "text-editors"]
 
+[entry.gotham]
+
 [entry.conduit]
 
 [entry.iron]
