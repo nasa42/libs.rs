@@ -11,6 +11,5 @@ name = "afl"
 repository_url = "https://github.com/frewsxcv/afl.rs"
 
 [entry.polish]
-crates_io_id = false
 name = "polish"
 repository_url = "https://github.com/Alkass/polish"
